@@ -69,6 +69,9 @@ public class Arithmetic {
                 System.out.print("Укажите количество дней: ");
                 int numberOfdays = getNextIntegerNumber(scanner);
                 profitCalculation(discount, price, numberOfdays);
+                break;
+            case 666:
+                method();
         }
 
     }
@@ -148,4 +151,16 @@ public class Arithmetic {
         }
         System.out.println("Прибиль за " + numberOfdays + " дней составит: " + sumProfit);
     }
+
+    public static void method() {
+        int a = 10;
+        int b = 3;
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("a= " + a);
+        System.out.println("b= " + b);
+    }
+
+
 }
