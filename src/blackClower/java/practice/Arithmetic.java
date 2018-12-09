@@ -7,6 +7,7 @@ public class Arithmetic {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите порядковый номер программы");
         int serialnumber = getNextIntegerNumber(scanner);
+        //double firstN, secondN, thirdN;
         int a;
         int b;
         int c;
@@ -15,6 +16,19 @@ public class Arithmetic {
         double priceBiscuit;
         double priceСandies;
         switch (serialnumber) {
+            case 1:
+                task1();
+                break;
+            case 2:
+                a = 2;
+                b = 3;
+                System.out.println(task2(a, b));
+                break;
+            case 3:
+                System.out.println("Введите значение х: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.println(task3(a));
+                break;
             case 15:
                 System.out.println("15.Пользователь вводит число. Выведите на экран квадрат этого числа, куб этого числа.");
                 System.out.println("Введите целое число с клавиатуры");
@@ -70,8 +84,10 @@ public class Arithmetic {
                 int numberOfdays = getNextIntegerNumber(scanner);
                 profitCalculation(discount, price, numberOfdays);
                 break;
-            case 666:
+            case 21:
+                System.out.println("Поменяйте местами значения двух переменных, не используя дополнительных переменных.");
                 method();
+                break;
         }
 
     }
@@ -90,6 +106,65 @@ public class Arithmetic {
             scannerDouble.next();
         }
         return scannerDouble.nextDouble();
+    }
+
+    /**
+     * 1.Вычислите 1/2+1/4. Ответ: 0.75
+     */
+    public static void task1() {
+        double a = 1, b = 2, c = 4;
+        double result = a / b + a / c;
+        System.out.println("Результат при данных условиях: " + result);
+    }
+
+    /**
+     * 2.Вычислите значение выражения (a+4b)(a−3b)+a2 при a=2 и b=3. Ответ:  -94
+     */
+    public static int task2(int a, int b) {
+        int result = (int) ((a + 4 * b) * (a - 3 * b) + Math.pow(a, 2));
+        return result;
+    }
+
+    /**
+     * 3.Вычислите |x|+x5, если x=−2. Ответ: -30
+     */
+    public static int task3(int x) {
+        int result = (int) (Math.abs(x) + Math.pow(x, 5));
+        return result;
+    }
+
+    /**
+     * 4.Вычислите значение выражения (x+1)2+3(x+1) при а) x=1.7; б) x=3. Ответ: а) 15.39 б) 28
+     */
+    public static double task4(double x) {
+        double result = Math.pow((x + 1), 2) + 3 * (x + 1);
+        return result;
+    }
+
+    /**
+     * 5.Вычислите значение выражения |x−5|−sinx/3+√x2+2014*cos2x−3 при x=−2.34. Ответ: -1.76911 (проверено!)
+     */
+    public static double task5(double x) {
+        double result = (Math.abs(x - 5) - Math.sin(x)) / 3 + (Math.sqrt(Math.pow(x, 2) + 2014)) * Math.cos(2 * x) - 3;
+        return result;
+    }
+
+    /**
+     * 6.Вычислите значение выражения e(x−2)+|sin(x)|−x4⋅cos1x при x=3.6 Ответ: -156.1276
+     */
+    public static double task6(double x) {
+        double result = Math.pow(Math.E, (x - 2)) + Math.abs(Math.sin(x)) - Math.pow(x, 4) * Math.cos(1 / x);
+        return result;
+    }
+
+    /**
+     * 7.Пользователь вводит два числа. Найдите сумму и произведение данных чисел.
+     */
+    public static void sumANDmultiplication(int a, int b) {
+
+        System.out.println("Сумма чисел равна " + (a + b));
+        System.out.println("Произведение чисел равно " + (a * b));
+
     }
 
     /**
@@ -152,6 +227,9 @@ public class Arithmetic {
         System.out.println("Прибиль за " + numberOfdays + " дней составит: " + sumProfit);
     }
 
+    /**
+     * 21.Поменяйте местами значения двух переменных, не используя дополнительных переменных.
+     */
     public static void method() {
         int a = 10;
         int b = 3;
@@ -161,6 +239,12 @@ public class Arithmetic {
         System.out.println("a= " + a);
         System.out.println("b= " + b);
     }
-
+/**
+ * Дано число a. Не пользуясь никакими арифметическими операциями кроме умножения, получите
+ * а)a^4 за две операции; б) a^6 за три операции; в) a^15 за пять операций.
+ */
+public static void powOperation(int a){
+    System.out.println("a^4 ");
+}
 
 }
