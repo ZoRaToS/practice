@@ -86,6 +86,7 @@ public class Arithmetic {
                 break;
             case 21:
                 System.out.println("Поменяйте местами значения двух переменных, не используя дополнительных переменных.");
+
                 method();
                 break;
         }
