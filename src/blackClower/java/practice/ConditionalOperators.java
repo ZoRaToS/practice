@@ -7,7 +7,7 @@ public class ConditionalOperators {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите порядковый номер программы");
         int serialNumber = getNextIntegerNumber(scanner);
-        int a;
+        int a, b, c;
 
         switch (serialNumber) {
             case 34:
@@ -43,6 +43,41 @@ public class ConditionalOperators {
                 System.out.print("Введите номер месяца: ");
                 a = getNextIntegerNumber(scanner);
                 task43(a);
+                break;
+            case 44:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                task44(a, b);
+                break;
+            case 45:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task45(a, b, c);
+                break;
+            case 46:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task46(a, b, c);
+                break;
+            case 47:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task48(a, b, c);
+                break;
         }
 
     }
@@ -173,18 +208,19 @@ public class ConditionalOperators {
             System.out.println("Выполнение блока else , a = " + a);
         }
     }
+
     /**
      * 43.	Пользователь вводит номер месяца. Вывести название поры года (весна, лето и т.д.)
      */
     public static void task43(int a) {
         if (a > 0 && a < 12) {
-            if (a==1||a==2||a==12){
+            if (a == 1 || a == 2 || a == 12) {
                 System.out.println("Winter");
-            }else if (a==3||a==4||a==5){
+            } else if (a == 3 || a == 4 || a == 5) {
                 System.out.println("Spring");
-            }else if (a==6||a==7||a==8){
+            } else if (a == 6 || a == 7 || a == 8) {
                 System.out.println("Summer");
-            }else if (a==9||a==10||a==11){
+            } else if (a == 9 || a == 10 || a == 11) {
                 System.out.println("Autumn");
             }
             switch (a) {
@@ -228,4 +264,59 @@ public class ConditionalOperators {
         } else System.out.println("Такого месяца не сушествует!!");
     }
 
+    /**
+     * 44.	Пользователь вводит два числа. Если они не равны 10 и первое число четное, то вывести их сумму, иначе вывести их произведение.
+     *
+     * @param a
+     * @param b
+     */
+    public static void task44(int a, int b) {
+        if (a != 10 && b != 10 && a % 2 == 0) {
+            System.out.println("Выполнение блока if.Сумма часел равна: " + (a + b));
+        } else System.out.println("Выполнение блока else. Произведение чисел равно: " + (a * b));
+    }
+
+    /**
+     * 45.	Пользователь вводит три числа. Если все числа больше 10 и первые два числа делятся на 3, то вывести yes, иначе no
+     */
+    public static void task45(int a, int b, int c) {
+        if (a > 10 && b > 10 && c > 10 && a % 3 == 0 && b % 3 == 0) {
+            System.out.println("Выполнение блока if: YES");
+        } else System.out.println("Выполнение блока else: NO");
+    }
+
+    /**
+     * 46.	Пользователь вводит три числа. Найти сумму тех чисел, которые делятся на 5. Если таких чисел нет, то вывести error.
+     */
+    public static void task46(int a, int b, int c) {
+        if (a % 5 == 0 && b % 5 == 0 && c % 5 == 0) {
+            System.out.println("Выполнение блока if. Сумма чисел которые делятся на 5: " + (a + b + c));
+        } else if (a % 5 == 0 && b % 5 == 0) {
+            System.out.println("Выполнение блока else if. Сумма чисел которые делятся на 5 равна: " + (a + b));
+        } else if (a % 5 == 0 && c % 5 == 0) {
+            System.out.println("Выполнение блока else if1. Сумма чисел которые делятся на 5 равна: " + (a + c));
+        } else if (b % 5 == 0 && c % 5 == 0) {
+            System.out.println("Выполнение блока else if2. Сумма чисел которые делятся на 5 равна: " + (b + c));
+        } else System.out.println("Выполнение блока else: Error");
+    }
+
+    /**
+     * 47. Даны три числа. Найдите те два из них, сумма которых наибольшая.
+     */
+    public static void task48(int a, int b, int c) {
+        if ((a + b) > (b + c)&&(a+b)>(a+c)) {
+            System.out.println("Самая болшая сумма у чисел " + a + " и " + b);
+        }else if((b+c)>(a+b)&&(b+c)>(a+c)){
+            System.out.println("Самая болшая сумма у чисел " + b + " и " + c);
+        }else System.out.println("Самая болшая сумма у чисел " + a + " и " + c);
+    }
+    /**
+     * 49.	 Пользователь вводит четыре числа. Найдите наибольшее четное число среди них. Если оно не существует, выведите фразу "not found"
+     */
+    public static void task49(int a, int b, int c,int d) {
+        if (a%2==0||b%2==0||c%2==0||d%2==0) {
+            Math.max(a,Math.max(b,Math.max(c,d)));
+        }else System.out.println("Самая болшая сумма у чисел " + a + " и " + c);
+    }
 }
+
