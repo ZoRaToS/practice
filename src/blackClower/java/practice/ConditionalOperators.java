@@ -140,6 +140,12 @@ public class ConditionalOperators {
                 System.out.println("Введите действие '0'-продолжить движение, '-1'-вправо, '1'- влево");
                 b = getNextIntegerNumber(scanner);
                 task56(a, b);
+                break;
+            case 59:
+                System.out.print("Введите четырехзначное число ");
+                a = getNextIntegerNumber(scanner);
+                task59(a);
+                break;
         }
 
     }
@@ -508,9 +514,21 @@ public class ConditionalOperators {
             }
         }
     }
+
     /**
      * 59.	Дано четырехзначное число. Верно ли, что цифры в нем расположены по убыванию? Например, 4311 - нет, 4321 - да, 5542 - нет, 5631 - нет, 9871 - да.
      */
+    public static void task59(int a) {
+        int m1, m2, m3, m4;
+        m4 = a % 10;
+        m3 = a / 10 % 10;
+        m2 = a / 10 / 10 % 10;
+        m1 = a / 10 / 10 / 10 % 10;
+        System.out.println(m1 + "" + m2 + "" + m3 + "" + m4);
+        if (m1 > m2 && m2 > m3 && m3 > m4) {
+            System.out.println("Цифры в числе расположены по убыванию");
+        } else System.out.println("Цифры в числе расположены не по убыванию");
+    }
 
 
 }
