@@ -146,6 +146,11 @@ public class ConditionalOperators {
                 a = getNextIntegerNumber(scanner);
                 task59(a);
                 break;
+            case 60:
+                System.out.print("Введите трехзначное число ");
+                a = getNextIntegerNumber(scanner);
+                task60(a);
+                break;
         }
 
     }
@@ -528,6 +533,20 @@ public class ConditionalOperators {
         if (m1 > m2 && m2 > m3 && m3 > m4) {
             System.out.println("Цифры в числе расположены по убыванию");
         } else System.out.println("Цифры в числе расположены не по убыванию");
+    }
+
+    /**
+     * 60. Дано трехзначное число. Переставьте первую и последнюю цифры.
+     */
+    public static void task60(int a) {
+        int i, j, k;
+        i = a % 10;//отделяем еденицы
+        a /= 10;//получаем двузначное число
+        j = a % 10;//отделяем еденницы от оставшегося числа
+        a /= 10;//получаем первую цифру числа
+        k = a;
+        a = i * 100 + j * 10 + k;
+        System.out.println("Измененное число: " + a);
     }
 
 
