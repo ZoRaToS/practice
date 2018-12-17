@@ -7,7 +7,7 @@ public class ConditionalOperators {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите порядковый номер программы");
         int serialNumber = getNextIntegerNumber(scanner);
-        int a, b, c;
+        int a, b, c, d, max = 0;
 
         switch (serialNumber) {
             case 34:
@@ -69,7 +69,7 @@ public class ConditionalOperators {
                 c = getNextIntegerNumber(scanner);
                 task46(a, b, c);
                 break;
-            case 47:
+            case 48:
                 System.out.print("Введите первое число: ");
                 a = getNextIntegerNumber(scanner);
                 System.out.print("Введите второе число: ");
@@ -78,6 +78,68 @@ public class ConditionalOperators {
                 c = getNextIntegerNumber(scanner);
                 task48(a, b, c);
                 break;
+            case 49:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                System.out.print("Введите четвертое число: ");
+                d = getNextIntegerNumber(scanner);
+                task49(a, b, c, d, max);
+                break;
+            case 50:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task50(a, b, c);
+                break;
+            case 51:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task51(a, b, c);
+                break;
+            case 52:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                System.out.print("Введите четвертое число: ");
+                d = getNextIntegerNumber(scanner);
+                task52(a, b, c, d);
+                break;
+            case 53:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                task53(a, b);
+                break;
+            case 54:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task54(a, b, c);
+                break;
+            case 56:
+                System.out.println("Выбирете исходное направление движения '11'-север, '12'-запад, '13'-юг, '14'-восток ");
+                a = getNextIntegerNumber(scanner);
+                System.out.println("Введите действие '0'-продолжить движение, '-1'-вправо, '1'- влево");
+                b = getNextIntegerNumber(scanner);
+                task56(a, b);
         }
 
     }
@@ -304,19 +366,154 @@ public class ConditionalOperators {
      * 47. Даны три числа. Найдите те два из них, сумма которых наибольшая.
      */
     public static void task48(int a, int b, int c) {
-        if ((a + b) > (b + c)&&(a+b)>(a+c)) {
+        if ((a + b) > (b + c) && (a + b) > (a + c)) {
             System.out.println("Самая болшая сумма у чисел " + a + " и " + b);
-        }else if((b+c)>(a+b)&&(b+c)>(a+c)){
+        } else if ((b + c) > (a + b) && (b + c) > (a + c)) {
             System.out.println("Самая болшая сумма у чисел " + b + " и " + c);
-        }else System.out.println("Самая болшая сумма у чисел " + a + " и " + c);
+        } else System.out.println("Самая болшая сумма у чисел " + a + " и " + c);
     }
+
     /**
      * 49.	 Пользователь вводит четыре числа. Найдите наибольшее четное число среди них. Если оно не существует, выведите фразу "not found"
      */
-    public static void task49(int a, int b, int c,int d) {
-        if (a%2==0||b%2==0||c%2==0||d%2==0) {
-            Math.max(a,Math.max(b,Math.max(c,d)));
-        }else System.out.println("Самая болшая сумма у чисел " + a + " и " + c);
+    public static void task49(int a, int b, int c, int d, int max) {
+        if (a % 2 == 0) {
+            System.out.println("a - четное");
+            max = a;
+        } else System.out.println("a - не четное");
+        if (b % 2 == 0) {
+            System.out.println("b - четное");
+            if (b > max)
+                max = b;
+        } else System.out.println("b - не четное");
+        if (c % 2 == 0) {
+            System.out.println("c - четное");
+            if (c > max)
+                max = c;
+        } else System.out.println("c - не четное");
+        if (d % 2 == 0) {
+            System.out.println("d - четное");
+            if (d > max)
+                max = d;
+        } else System.out.println("d - не четное");
+
+        if (a % 2 != 0 && b % 2 != 0 && c % 2 != 0 && d % 2 != 0) {
+            System.out.println("NOT FOUND");
+        }
+        System.out.println("Максимальное четное число: " + max);
     }
+
+    /**
+     * 50.	Даны три числа. Написать "yes", если среди них есть одинаковые.
+     */
+    public static void task50(int a, int b, int c) {
+        if (a == b || b == c || c == a) {
+            System.out.println("YES");
+        } else System.out.println("NO");
+    }
+
+    /**
+     * 51.Даны три числа. Написать "yes", если можно взять какие-то два из них и в сумме получить третье
+     */
+    public static void task51(int a, int b, int c) {
+        if ((a + b) == c || (a + c) == b || (b + c) == a) {
+            System.out.println("YES");
+        } else System.out.println("NO");
+    }
+
+    /**
+     * 52.	Дано четыре числа, если первые два числа больше 5, третье число делится на 6, четвертое число не делится на 3, то вывести yes, иначе no.
+     */
+    public static void task52(int a, int b, int c, int d) {
+        if (a > 5 && b > 5 && c % 6 == 0 && d % 3 != 0) {
+            System.out.println("YES");
+        } else System.out.println("NO");
+    }
+
+    /**
+     * 53.	Дано два числа. Если хотя бы одно из них больше 30, то вывести yes, иначе no.
+     */
+    public static void task53(int a, int b) {
+        if (a > 30 || b > 30) {
+            System.out.println("YES");
+        } else System.out.println("NO");
+    }
+
+    /**
+     * 54.	Дано три числа. Если ровно два из них  меньше 5, то вывести yes, иначе вывести no.
+     */
+    public static void task54(int a, int b, int c) {
+        if ((a < 5 && b < 5) || (b < 5 && c < 5) || (a < 5 && c < 5)) {
+            System.out.println("YES");
+        } else System.out.println("NO");
+    }
+
+    /**
+     * 56.
+     *
+     * @param napravlenie
+     * @param action
+     */
+    public static void task56(int napravlenie, int action) {
+        if (napravlenie == 11) {
+            System.out.println("Направление на север");
+            switch (action) {
+                case -1:
+                    System.out.println("Напрвление изменено на Восток");
+                    break;
+                case 0:
+                    System.out.println("Направление не изменилось");
+                    break;
+                case 1:
+                    System.out.println("Напрвление изменено на Запад");
+            }
+        }
+        if (napravlenie == 12) {
+            System.out.println("Направление на запад");
+            switch (action) {
+                case -1:
+                    System.out.println("Напрвление изменено на Север");
+                    break;
+                case 0:
+                    System.out.println("Направление не изменилось");
+                    break;
+                case 1:
+                    System.out.println("Напрвление изменено на Юг");
+            }
+        }
+        if (napravlenie == 13) {
+            System.out.println("Направление на юг");
+            switch (action) {
+                case -1:
+                    System.out.println("Напрвление изменено на Запад");
+                    break;
+                case 0:
+                    System.out.println("Направление не изменилось");
+                    break;
+                case 1:
+                    System.out.println("Напрвление изменено на Восток");
+            }
+        }
+        if (napravlenie == 14) {
+            System.out.println("Направление на восток");
+            switch (action) {
+                case -1:
+                    System.out.println("Напрвление изменено на Юг");
+                    break;
+                case 0:
+                    System.out.println("Направление не изменилось");
+                    break;
+                case 1:
+                    System.out.println("Напрвление изменено на Север");
+            }
+        }
+    }
+    /**
+     * 59.	Дано четырехзначное число. Верно ли, что цифры в нем расположены по убыванию? Например, 4311 - нет, 4321 - да, 5542 - нет, 5631 - нет, 9871 - да.
+     */
+
+
 }
+
+
 
