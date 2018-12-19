@@ -151,6 +151,15 @@ public class ConditionalOperators {
                 a = getNextIntegerNumber(scanner);
                 task60(a);
                 break;
+            case 69:
+                System.out.print("Введите первое число: ");
+                a = getNextIntegerNumber(scanner);
+                System.out.print("Введите второе число: ");
+                b = getNextIntegerNumber(scanner);
+                System.out.print("Введите третье число: ");
+                c = getNextIntegerNumber(scanner);
+                task69(a, b, c);
+                break;
         }
 
     }
@@ -549,7 +558,18 @@ public class ConditionalOperators {
         System.out.println("Измененное число: " + a);
     }
 
+    /**
+     * 69.	Пользователь вводит три числа - длины сторон треугольника. Найти площадь треугольника. Сделать проверку на существование треугольника (например, 1, 2, 3 - такого треугольника не существует).
+     */
+    public static void task69(int a, int b, int c) {
+        if ((a + b) > c || (b + c) > a || (a + c) > b) {
+            System.out.println("Треугольник существует");
+        } else System.out.println("Такого треугольника не существует");
+        int p = (a + b + c) / 2;
+        double s = Math.sqrt(p * (p - a) * (p - b) * (p - a));
+        System.out.println("Площадь треугольника равна " + s);
 
+    }
 }
 
 
