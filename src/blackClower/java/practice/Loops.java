@@ -9,8 +9,8 @@ public class Loops {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите порядковый номер программы ");
         int serialNumber = getNextIntegerNumber(scanner);
-        int arr[] = new int[20];
-
+        int arr[] = new int[10];
+        int arr2[] = new int[10];
         switch (serialNumber) {
             case 1:
                 displayArr(arr);
@@ -25,18 +25,24 @@ public class Loops {
                 minElement(arr);
                 break;
             case 5:
-                findeEvenElement(arr);
+                findEvenElement(arr);
                 break;
             case 6:
-                findeEvenElementInRange(arr);
+                findEvenElementInRange(arr);
+                break;
+            case 7:
+                eventNotEventMaxMin(arr);
+                break;
+            case 8:
+                findMaxThanAverage(arr);
+                break;
+            case 11:
+                gernerateThirdArray(arr, arr2);
                 break;
         }
 
     }
 
-    /**
-     * Вывеси элементы массива в прямом иобратном порядке
-     */
     private static int getNextIntegerNumber(Scanner scannerInt) {
         while (!scannerInt.hasNextInt()) {
             System.out.println("Ошибка! Вы ввели не целое число. Повторите пожалуйста ввод:");
@@ -45,6 +51,9 @@ public class Loops {
         return scannerInt.nextInt();
     }
 
+    /**
+     * 1.Вывеси элементы массива в прямом иобратном порядке
+     */
     public static void displayArr(int arr[]) {
 
         for (int i = 0; i < arr.length; i++) {// вывод в прямом порядке
@@ -58,7 +67,7 @@ public class Loops {
     }
 
     /**
-     * вычислить сумму элементов массива
+     * 2.Вычислить сумму элементов массива
      */
     public static void arraySum(int arr[]) {
         int sum = 0;
@@ -72,7 +81,7 @@ public class Loops {
     }
 
     /**
-     * Найти максимальны элемент массива
+     * 3.Найти максимальны элемент массива
      *
      * @param arr
      */
@@ -92,7 +101,7 @@ public class Loops {
     }
 
     /**
-     * Найти минимальный элемент массива и его индекс
+     * 4.Найти минимальный элемент массива и его индекс
      *
      * @param arr
      */
@@ -116,9 +125,9 @@ public class Loops {
     }
 
     /**
-     * Вычислить количество и сумму четных элементов массива
+     * 5.Вычислить количество и сумму четных элементов массива
      */
-    public static void findeEvenElement(int arr[]) {
+    public static void findEvenElement(int arr[]) {
         int count = 0;
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -135,9 +144,9 @@ public class Loops {
     }
 
     /**
-     * Вычислить количество и сумму четных элементов массива нахдящихся в диапазоне 20...30
+     * 6.Вычислить количество и сумму четных элементов массива нахдящихся в диапазоне 20...30
      */
-    public static void findeEvenElementInRange(int arr[]) {
+    public static void findEvenElementInRange(int arr[]) {
         int count = 0;
         int sum = 0;
         for (int i = 0; i < arr.length; i++) {
@@ -152,5 +161,77 @@ public class Loops {
         System.out.println("Количество четных элементов: " + count);
         System.out.println("Сумма четных элементов: " + sum);
     }
+
+    /**
+     * 7.Вычислить максимальный из четных и минимальный из не четных элементов массива
+     */
+    public static void eventNotEventMaxMin(int arr[]) {
+        int min = (int) Float.POSITIVE_INFINITY;
+        int max = (int) Float.NEGATIVE_INFINITY;
+        for (int i = 0; i < arr.length; i++) {       //вывод массива случайных чисел на экран
+            arr[i] = (int) (-100 + Math.random() * 200);
+            System.out.print(arr[i] + " ");
+        }
+        for (int i = 0; i < arr.length; i++) {      //поиск максимального из четных
+            if (arr[i] % 2 == 0 & arr[i] > max) {
+                max = arr[i];
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {      //поиск минимального из не четных
+            if (arr[i] % 2 != 0 & arr[i] < min) {
+                min = arr[i];
+            }
+        }
+        System.out.println();
+        System.out.println("максимальное число из четных: " + max);
+        System.out.println("минимальное число из не четных: " + min);
+    }
+
+    /**
+     * 10.Определить среднее арифметическое элементов массива и количество элементов которые больше значения среднего арифметического
+     */
+    public static void findMaxThanAverage(int arr[]) {
+        double average;
+        int sum = 0;
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + " ");
+        }
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        System.out.println();
+        average = (double) sum / arr.length;
+        System.out.println("Среднее арифметическое: " + average);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > average) {
+                count++;
+            }
+        }
+        System.out.println("Количество элементов, которые больше сред. арифм.: " + count);
+    }
+
+    /**
+     * 11.Создать массив как попарную сумму элементов двух массивов одинаковой длины
+     */
+    public static void gernerateThirdArray(int arr[], int arr2[]) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        for (int i = 0; i < arr.length; i++) {
+            arr2[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr2[i] + " ");
+        }
+        System.out.println();
+        int arr3[] = new int[arr.length];
+        for (int i = 0; i < arr3.length; i++) {
+            arr3[i] = arr[i] + arr2[i];
+            System.out.print(arr3[i] + " ");
+        }
+    }
+
 
 }
