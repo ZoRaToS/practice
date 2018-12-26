@@ -42,6 +42,9 @@ public class Loops {
             case 12:
                 arrayConcatenation(arr, arr2);
                 break;
+            case 13:
+                changeMaxMin(arr);
+                break;
         }
 
     }
@@ -264,15 +267,45 @@ public class Loops {
     }
 
     /**
-     * 13.Вмассиве поменять местами максимум и минимум
+     * 13.В массиве поменять местами максимум и минимум
      */
     public static void changeMaxMin(int arr[]) {
+        int indexMin = 0;
+        int indexMax = 0;
+        int min = (int) Float.POSITIVE_INFINITY;
+        int max = (int) Float.NEGATIVE_INFINITY;
         System.out.println("Начальный массив масссив");
-        for (int i=0;i<arr.length;i++){
-
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + "\t");
         }
-    }
+        System.out.println();
+        for (int i = 0; i < arr.length; i++) { // поиск минимального элемента
+            if (arr[i] < min)
+                min = arr[i];
+            if (arr[i] == min)
+                indexMin = i;
+        }
+        System.out.println("Индекс минимального элемента: " + indexMin);
+        System.out.println("Минимальный элемент: " + min);
 
+        for (int i = 0; i < arr.length; i++) { // поиск максимального элемента
+            if (arr[i] > max)
+                max = arr[i];
+            if (arr[i] == max)
+                indexMax = i;
+        }
+        System.out.println("Индекс максимального элемента: " + indexMax);
+        System.out.println("Максимальный элемент: " + max);
+        System.out.println("Массив changeMaxMin");
+        for (int i = 0; i < arr.length; i++) { // поиск максимального элемента
+            arr[indexMax] = min;
+            arr[indexMin] = max;
+            System.out.print(arr[i] + "\t");
+        }
+
+
+    }
 }
 
 
