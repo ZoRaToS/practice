@@ -10,7 +10,7 @@ public class Loops {
         System.out.print("Введите порядковый номер программы ");
         int serialNumber = getNextIntegerNumber(scanner);
         int arr[] = new int[10];
-        int arr2[] = new int[10];
+        int arr2[] = new int[5];
         switch (serialNumber) {
             case 1:
                 displayArr(arr);
@@ -38,6 +38,9 @@ public class Loops {
                 break;
             case 11:
                 gernerateThirdArray(arr, arr2);
+                break;
+            case 12:
+                arrayConcatenation(arr, arr2);
                 break;
         }
 
@@ -233,5 +236,44 @@ public class Loops {
         }
     }
 
+    /**
+     * 12.Создать массив как конкатенацию двух массивов
+     */
+    public static void arrayConcatenation(int arr[], int arr2[]) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr2[i] + "\t");
+        }
+        int arr3[] = new int[arr.length + arr2.length];
+        for (int i = 0; i < arr.length; i++) {
+            arr3[i] = arr[i];
+        }
+
+        for (int i = 0; i < arr2.length; i++) {
+            arr3[i + arr.length] = arr2[i];
+        }
+        System.out.println();
+        for (int i = 0; i < arr3.length; i++) {
+            System.out.print(arr3[i] + "\t");
+        }
+    }
+
+    /**
+     * 13.Вмассиве поменять местами максимум и минимум
+     */
+    public static void changeMaxMin(int arr[]) {
+        System.out.println("Начальный массив масссив");
+        for (int i=0;i<arr.length;i++){
+
+        }
+    }
 
 }
+
+
+
