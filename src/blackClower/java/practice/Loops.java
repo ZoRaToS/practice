@@ -1,5 +1,6 @@
 package blackClower.java.practice;
 
+import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Loops {
@@ -44,6 +45,9 @@ public class Loops {
                 break;
             case 13:
                 changeMaxMin(arr);
+                break;
+            case 14:
+                removeMaxMin(arr);
                 break;
         }
 
@@ -298,13 +302,47 @@ public class Loops {
         System.out.println("Индекс максимального элемента: " + indexMax);
         System.out.println("Максимальный элемент: " + max);
         System.out.println("Массив changeMaxMin");
-        for (int i = 0; i < arr.length; i++) { // поиск максимального элемента
+        for (int i = 0; i < arr.length; i++) { // замена максимального и минимального элемента
             arr[indexMax] = min;
             arr[indexMin] = max;
             System.out.print(arr[i] + "\t");
         }
+    }
 
+    /**
+     * 14.Вмассиве убрать максимум и минимум
+     */
+    public static void removeMaxMin(int arr[]) {
+        int indexMin = 0;
+        int indexMax = 0;
+        int min = (int) Float.POSITIVE_INFINITY;
+        int max = (int) Float.NEGATIVE_INFINITY;
+        System.out.println("Начальный массив");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < min)
+                min = arr[i];
+            if (arr[i] == min)
+                indexMin = i;
+        }
+        System.out.println("Минимальный элемент: " + min);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max)
+                max = arr[i];
+            if (arr[i] == max)
+                indexMax = i;
+        }
+        System.out.println("Максимальный элемент: " + max);
 
+        for (int i = 0; i < arr.length; i++) {
+            arr[indexMax] = 0;
+            arr[indexMin] = 0;
+            System.out.print(arr[i] + "\t");
+        }
     }
 }
 
