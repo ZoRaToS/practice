@@ -1,6 +1,5 @@
 package blackClower.java.practice;
 
-import java.lang.reflect.Array;
 import java.util.Scanner;
 
 public class Loops {
@@ -11,7 +10,7 @@ public class Loops {
         System.out.print("Введите порядковый номер программы ");
         int serialNumber = getNextIntegerNumber(scanner);
         int arr[] = new int[10];
-        int arr2[] = new int[5];
+        int arr2[] = new int[10];
         switch (serialNumber) {
             case 1:
                 displayArr(arr);
@@ -48,6 +47,12 @@ public class Loops {
                 break;
             case 14:
                 removeMaxMin(arr);
+                break;
+            case 15:
+                separateArray(arr);
+                break;
+            case 16:
+                createArrayOfNotEven(arr, arr2);
                 break;
         }
 
@@ -344,7 +349,87 @@ public class Loops {
             System.out.print(arr[i] + "\t");
         }
     }
+
+    /**
+     * 15.Массив поделить на два массива: положительных и отрицательных чисел
+     */
+    public static void separateArray(int arr[]) {
+        System.out.println("Начальный массив");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + "\t");
+        }
+        int countNeg = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0)
+                countNeg++;
+        }
+        int arrayPos[] = new int[arr.length - countNeg];
+        int arrayNeg[] = new int[countNeg];
+        int indexPos = 0;
+        int indexNeg = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 0) {
+                arrayNeg[indexNeg] = arr[i];
+                indexNeg++;
+            } else {
+                arrayPos[indexPos] = arr[i];
+                indexPos++;
+            }
+        }
+        System.out.println();
+        System.out.println("Массив положительных чисел");
+        for (int i = 0; i < arrayPos.length; i++) {
+            System.out.print(arrayPos[i] + "\t");
+        }
+        System.out.println();
+        System.out.println("Массив отрицательных чисел");
+        for (int i = 0; i < arrayNeg.length; i++) {
+            System.out.print(arrayNeg[i] + "\t");
+        }
+
+    }
+
+    /**
+     * 16.Создать третий массив из элементов двух массивов одинаковой длины, которые являются попарно не четными
+     */
+    public static void createArrayOfNotEven(int arr[], int arr2[]) {
+        System.out.println("Первый массив");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
+        System.out.println("Второй массив");
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr2[i] + "\t");
+        }
+        int countNotEven = 0;
+        for (int i = 0; i < arr2.length; i++) { //поиск количества попарно не четных чисел в массивах
+            if (arr[i] % 2 != 0 & arr2[i] % 2 != 0) {
+                countNotEven++;
+            }
+        }
+        System.out.println();
+        System.out.println(countNotEven);
+        int arr3[] = new int[countNotEven * 2];// объявление третьего массива
+        int indexForArr3 = 0; //объявление переменной-счетчика для третьего массива
+        for (int i = 0; i < arr3.length; i++) { //заполнение массива попарно не четными числами из предыдущих двух массивов
+            if (arr[i] % 2 != 0 && arr2[i] % 2 != 0) {
+                arr3[indexForArr3] = arr[i];
+                arr3[indexForArr3 + 1] = arr2[i];
+                indexForArr3 += 2;
+            }
+        }
+        System.out.println();
+        System.out.println("Ваш новый массив");
+        for (int i = 0; i < arr3.length; i++) {
+            System.out.print(arr3[i] + "\t");
+        }
+    }
 }
+
 
 
 
