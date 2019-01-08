@@ -394,8 +394,8 @@ public class Loops {
      * 16.Создать третий массив из элементов двух массивов одинаковой длины, которые являются попарно не четными
      */
     public static int[] createArrayOfNotEven() {
-        int[] arr = new int[11];
-        int[] arr2 = new int[11];
+        int[] arr = new int[10];
+        int[] arr2 = new int[10];
         System.out.println("Первый массив");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (-10 + Math.random() * 20);
