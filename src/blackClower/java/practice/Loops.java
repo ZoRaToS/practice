@@ -9,8 +9,8 @@ public class Loops {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите порядковый номер программы ");
         int serialNumber = getNextIntegerNumber(scanner);
-        int arr[] = new int[11];
-        int arr2[] = new int[11];
+        int arr[] = new int[10];
+        int arr2[] = new int[10];
         switch (serialNumber) {
             case 1:
                 displayArr(arr);
@@ -53,6 +53,9 @@ public class Loops {
                 break;
             case 16:
                 createArrayOfNotEven();
+                break;
+            case 17:
+               remuveDupMaxMin(arr);
                 break;
         }
 
@@ -421,7 +424,6 @@ public class Loops {
             if (arr[i] % 2 != 0 & arr2[i] % 2 != 0) {
                 arr3[indexArrRez++] = arr[i];
                 arr3[indexArrRez++] = arr2[i];
-
             }
         }
         System.out.println();
@@ -430,6 +432,50 @@ public class Loops {
             System.out.print(arr3[i] + "\t");
         }
         return arr3;
+    }
+
+    /**
+     * 17. Из массива удалить дубликаты максимума и минимума
+     */
+    public static void remuveDupMaxMin(int arr[]) {
+        System.out.println("Исходный массив");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = (int) (-10 + Math.random() * 20);
+            System.out.print(arr[i] + "\t");
+        }
+        int newLength = arr.length;
+        // find length w/o duplicates:
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) { // if duplicate founded then decrease length by 1
+                    newLength--;
+                    break;
+                }
+            }
+        }
+        int[] newArray = new int[newLength]; // create new array with new length
+        newArray[0] = arr[0];  // 1st element goes to new array
+        int inx = 1;            // index for 2nd element of new array
+        boolean isDuplicate;
+
+        for (int i = 1; i < arr.length; i++) {
+            isDuplicate = false;
+            for (int j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {  // if duplicate founded then change boolean variable and break
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {     // if it not duplicate then put it to new array
+                newArray[inx] = arr[i];
+                inx++;
+            }
+        }
+        System.out.println();
+        System.out.println("Result");
+        for (int i = 1; i < newArray.length; i++) {
+            System.out.print(newArray[i]+"\t");
+        }
     }
 }
 
