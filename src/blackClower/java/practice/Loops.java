@@ -9,8 +9,8 @@ public class Loops {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите порядковый номер программы ");
         int serialNumber = getNextIntegerNumber(scanner);
-        int arr[] = new int[10];
-        int arr2[] = new int[10];
+        int arr[] = new int[11];
+        int arr2[] = new int[11];
         switch (serialNumber) {
             case 1:
                 displayArr(arr);
@@ -52,7 +52,7 @@ public class Loops {
                 separateArray(arr);
                 break;
             case 16:
-                createArrayOfNotEven(arr, arr2);
+                createArrayOfNotEven();
                 break;
         }
 
@@ -393,7 +393,9 @@ public class Loops {
     /**
      * 16.Создать третий массив из элементов двух массивов одинаковой длины, которые являются попарно не четными
      */
-    public static void createArrayOfNotEven(int arr[], int arr2[]) {
+    public static int[] createArrayOfNotEven() {
+        int[] arr = new int[11];
+        int[] arr2 = new int[11];
         System.out.println("Первый массив");
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (-10 + Math.random() * 20);
@@ -412,14 +414,14 @@ public class Loops {
             }
         }
         System.out.println();
-        System.out.println(countNotEven);
+        System.out.println("Количество найденных пар: " + countNotEven);// количество пар не четных чисел в двух массивах
         int arr3[] = new int[countNotEven * 2];// объявление третьего массива
-        int indexForArr3 = 0; //объявление переменной-счетчика для третьего массива
-        for (int i = 0; i < arr3.length; i++) { //заполнение массива попарно не четными числами из предыдущих двух массивов
-            if (arr[i] % 2 != 0 && arr2[i] % 2 != 0) {
-                arr3[indexForArr3] = arr[i];
-                arr3[indexForArr3 + 1] = arr2[i];
-                indexForArr3 += 2;
+        int indexArrRez = 0; //объявление переменной-счетчика для третьего массива
+        for (int i = 0; i < arr2.length; i++) {  //заполнение массива попарно не четными числами из предыдущих двух массивов
+            if (arr[i] % 2 != 0 & arr2[i] % 2 != 0) {
+                arr3[indexArrRez++] = arr[i];
+                arr3[indexArrRez++] = arr2[i];
+
             }
         }
         System.out.println();
@@ -427,6 +429,7 @@ public class Loops {
         for (int i = 0; i < arr3.length; i++) {
             System.out.print(arr3[i] + "\t");
         }
+        return arr3;
     }
 }
 
