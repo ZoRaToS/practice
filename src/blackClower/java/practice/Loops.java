@@ -55,7 +55,7 @@ public class Loops {
                 createArrayOfNotEven();
                 break;
             case 17:
-               remuveDupMaxMin(arr);
+                remuveDupMaxMin(arr);
                 break;
         }
 
@@ -424,6 +424,7 @@ public class Loops {
             if (arr[i] % 2 != 0 & arr2[i] % 2 != 0) {
                 arr3[indexArrRez++] = arr[i];
                 arr3[indexArrRez++] = arr2[i];
+
             }
         }
         System.out.println();
@@ -435,7 +436,9 @@ public class Loops {
     }
 
     /**
-     * 17. Из массива удалить дубликаты максимума и минимума
+     * 17.Из массива удалить дубликаты максимума и минимума
+     *
+     * @param arr
      */
     public static void remuveDupMaxMin(int arr[]) {
         System.out.println("Исходный массив");
@@ -453,29 +456,31 @@ public class Loops {
                 }
             }
         }
-        int[] newArray = new int[newLength]; // create new array with new length
-        newArray[0] = arr[0];  // 1st element goes to new array
-        int inx = 1;            // index for 2nd element of new array
-        boolean isDuplicate;
-
-        for (int i = 1; i < arr.length; i++) {
-            isDuplicate = false;
-            for (int j = 0; j < i; j++) {
-                if (arr[i] == arr[j]) {  // if duplicate founded then change boolean variable and break
-                    isDuplicate = true;
-                    break;
-                }
-            }
-            if (!isDuplicate) {     // if it not duplicate then put it to new array
-                newArray[inx] = arr[i];
-                inx++;
-            }
-        }
         System.out.println();
-        System.out.println("Result");
-        for (int i = 1; i < newArray.length; i++) {
-            System.out.print(newArray[i]+"\t");
-        }
+        System.out.println("Размер массива без дубликатов " + newLength);
+//        int[] newArray = new int[newLength]; // create new array with new length
+//        newArray[0] = arr[0];  // 1st element goes to new array
+//        int inx = 1;            // index for 2nd element of new array
+//        boolean isDuplicate;
+//
+//        for (int i = 1; i < arr.length; i++) {
+//            isDuplicate = false;
+//            for (int j = 0; j < i; j++) {
+//                if (arr[i] == arr[j]) {  // if duplicate founded then change boolean variable and break
+//                    isDuplicate = true;
+//                    break;
+//                }
+//            }
+//            if (!isDuplicate) {     // if it not duplicate then put it to new array
+//                newArray[inx] = arr[i];
+//                inx++;
+//            }
+//        }
+//        System.out.println();
+//        System.out.println("Result");
+//        for (int i = 1; i < newArray.length; i++) {
+//            System.out.print(newArray[i] + "\t");
+//        }
     }
 }
 
